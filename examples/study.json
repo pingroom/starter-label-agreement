@@ -1,0 +1,36 @@
+{
+  "studyId": "helpdesk-rubric-v1",
+  "title": "Check our request rubric",
+  "rubric": "Label the purpose explicitly stated. Skip if unclear.",
+  "labels": [
+    {
+      "id": "question",
+      "label": "Question",
+      "definition": "Asks how something works."
+    },
+    {
+      "id": "bug",
+      "label": "Bug report",
+      "definition": "Reports existing behavior failing."
+    },
+    {
+      "id": "request",
+      "label": "Feature request",
+      "definition": "Requests a new capability."
+    }
+  ],
+  "items": [
+    {
+      "id": "item-a",
+      "text": "Where can I change the display language?"
+    },
+    {
+      "id": "item-b",
+      "text": "The export button returns an empty file."
+    },
+    {
+      "id": "item-c",
+      "text": "Can exports include a printable summary?"
+    }
+  ]
+}

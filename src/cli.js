@@ -29,9 +29,10 @@ try {
       const result = await step({ client, ...connection, directory: studyDirectory, study: await loadStudy(), config: await loadConfig(),
         command, attachId: command === 'recover' ? argument : undefined, signal: controller.signal });
       console.log(JSON.stringify(result, null, 2));
-      if (['pending', 'ready'].includes(result.status)) process.exitCode = 3;
+      if (['expired', 'cancelled', 'invalid_answer'].includes(result.observedStatus)) process.exitCode = 2;
+      else if (['pending', 'ready'].includes(result.status)) process.exitCode = 3;
       else if (result.status === 'create_unknown') process.exitCode = 4;
-      else if (['expired', 'cancelled', 'invalid_answer'].includes(result.observedStatus) || result.status === 'finished' && result.pairedItemCount < result.totalItems) process.exitCode = 2;
+      else if (result.status === 'finished' && result.pairedItemCount < result.totalItems) process.exitCode = 2;
     }
   }
 } catch (error) {
